@@ -1,0 +1,14 @@
+version: 1
+
+experts:
+  - id: expert-example
+    name: Expert Example
+    description: A simple MCP expert with echo, add, and get_time tools for testing
+    github: tinyinfra/expert_example
+    branch: main
+    mcp:
+      type: local
+      runtime: python
+    tags:
+      - testing
+      - example
