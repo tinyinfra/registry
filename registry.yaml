@@ -3,7 +3,7 @@ version: 1
 experts:
   - id: expert-example
     name: Expert Example
-    description: A simple MCP expert with echo, add, and get_time tools for testing
+    description: A simple MCP expert with echo, add, delay, and get_time tools for testing
     github: tinyinfra/expert_example
     branch: main
     mcp:
@@ -12,3 +12,16 @@ experts:
     tags:
       - testing
       - example
+
+  - id: expert-broken
+    name: Broken Expert
+    description: An expert that always fails to start (for testing graceful degradation)
+    github: tinyinfra/expert_example
+    branch: main
+    mcp:
+      type: local
+      runtime: node
+      command: this-command-does-not-exist-and-will-fail
+    tags:
+      - testing
+      - broken
