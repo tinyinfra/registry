@@ -1,14 +1,28 @@
 version: 1
 
 experts:
+  # Python expert (in python/ subdirectory)
   - id: expert-example
-    name: Expert Example
-    description: A simple MCP expert with echo, add, delay, and get_time tools for testing
+    name: Expert Example (Python)
+    description: Python MCP expert for testing with echo, add, and delay tools
     github: tinyinfra/expert_example
-    branch: main
     mcp:
       type: local
       runtime: python
+      subdir: python
+    tags:
+      - testing
+      - example
+
+  # TypeScript expert (in typescript/ subdirectory)
+  - id: expert-example-ts
+    name: Expert Example (TypeScript)
+    description: TypeScript MCP expert for testing with echo, add, and delay tools
+    github: tinyinfra/expert_example
+    mcp:
+      type: local
+      runtime: node
+      subdir: typescript
     tags:
       - testing
       - example
