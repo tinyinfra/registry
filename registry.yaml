@@ -10,6 +10,15 @@ experts:
       type: local
       runtime: python
       subdir: python
+    skills:
+      - path: skills/code-review
+        name: Code Review
+    rules:
+      - path: rules/python-style.md
+        name: Python Style
+    subagents:
+      - path: agents/refactor-agent.md
+        name: Refactor Agent
     tags:
       - testing
       - example
