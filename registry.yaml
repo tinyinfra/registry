@@ -1,24 +1,31 @@
 version: 1
 
-experts:
+extensions:
   # Python MCP server with math and utility tools
   - id: math-tools
     name: Math Tools
     description: Mathematical operations including arithmetic, delays, and text utilities
     github: tinyinfra/expert_example
-    mcp:
-      type: local
-      runtime: python
-      subdir: python
-    skills:
-      - path: skills/code-review
-        name: Code Review
-    rules:
-      - path: rules/python-style.md
-        name: Python Style
-    subagents:
-      - path: agents/refactor-agent.md
-        name: Refactor Agent
+    mcp_servers:
+      - id: server
+        name: Math Tools Server
+        description: Python MCP server with math operations
+        type: local
+        runtime: python
+        subdir: python
+    experts:
+      - id: content
+        name: Math Tools Content
+        description: Skills, rules, and subagents for Math Tools
+        skills:
+          - path: skills/code-review
+            name: Code Review
+        rules:
+          - path: rules/python-style.md
+            name: Python Style
+        subagents:
+          - path: agents/refactor-agent.md
+            name: Refactor Agent
     tags:
       - math
       - utilities
@@ -28,32 +35,43 @@ experts:
     name: Echo Service
     description: Text processing and echo utilities for testing and development
     github: tinyinfra/expert_example
-    mcp:
-      type: local
-      runtime: node
-      subdir: typescript
-    skills:
-      - path: skills/code-review
-        name: Code Review
-    rules:
-      - path: rules/python-style.md
-        name: Python Style
-    subagents:
-      - path: agents/refactor-agent.md
-        name: Refactor Agent
+    mcp_servers:
+      - id: server
+        name: Echo Service Server
+        description: TypeScript MCP server with echo utilities
+        type: local
+        runtime: node
+        subdir: typescript
+    experts:
+      - id: content
+        name: Echo Service Content
+        description: Skills, rules, and subagents for Echo Service
+        skills:
+          - path: skills/code-review
+            name: Code Review
+        rules:
+          - path: rules/python-style.md
+            name: Python Style
+        subagents:
+          - path: agents/refactor-agent.md
+            name: Refactor Agent
     tags:
       - text
       - utilities
 
+  # Intentionally broken server for testing error handling
   - id: broken-server
     name: Broken Server
     description: Intentionally broken server for testing error handling
     github: tinyinfra/expert_example
     branch: main
-    mcp:
-      type: local
-      runtime: node
-      command: this-command-does-not-exist-and-will-fail
+    mcp_servers:
+      - id: server
+        name: Broken Server
+        description: This server intentionally fails to start
+        type: local
+        runtime: node
+        command: this-command-does-not-exist-and-will-fail
     tags:
       - testing
       - broken
