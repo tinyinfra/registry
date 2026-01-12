@@ -1,10 +1,10 @@
 version: 1
 
 experts:
-  # Python expert (in python/ subdirectory)
-  - id: expert-example
-    name: Expert Example (Python)
-    description: Python MCP expert for testing with echo, add, and delay tools
+  # Python MCP server with math and utility tools
+  - id: math-tools
+    name: Math Tools
+    description: Mathematical operations including arithmetic, delays, and text utilities
     github: tinyinfra/expert_example
     mcp:
       type: local
@@ -20,13 +20,13 @@ experts:
       - path: agents/refactor-agent.md
         name: Refactor Agent
     tags:
-      - testing
-      - example
+      - math
+      - utilities
 
-  # TypeScript expert (in typescript/ subdirectory)
-  - id: expert-example-ts
-    name: Expert Example (TypeScript)
-    description: TypeScript MCP expert for testing with echo, add, and delay tools
+  # TypeScript MCP server with similar tools
+  - id: echo-service
+    name: Echo Service
+    description: Text processing and echo utilities for testing and development
     github: tinyinfra/expert_example
     mcp:
       type: local
@@ -42,12 +42,12 @@ experts:
       - path: agents/refactor-agent.md
         name: Refactor Agent
     tags:
-      - testing
-      - example
+      - text
+      - utilities
 
-  - id: expert-broken
-    name: Broken Expert
-    description: An expert that always fails to start (for testing graceful degradation)
+  - id: broken-server
+    name: Broken Server
+    description: Intentionally broken server for testing error handling
     github: tinyinfra/expert_example
     branch: main
     mcp:
